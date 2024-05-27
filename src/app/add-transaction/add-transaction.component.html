@@ -1,0 +1,37 @@
+<div class="">
+    <div class="">
+      <div class="">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Add Transaction</h5>
+
+            <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="accountId">Account ID</label>
+                  <input type="text" class="form-control" id="accountId" formControlName="accountId" data-type="account-id">
+                  <div *ngIf="submitted && transactionForm.controls['accountId'].errors" class="text-danger" data-type="error-accountId">
+                    Account ID is required.
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <label for="amount">Amount</label>
+                  <input type="number" class="form-control" id="amount" formControlName="amount" data-type="amount">
+                  <div *ngIf="submitted && transactionForm.controls['amount'].errors" class="text-danger" data-type="error-amount">
+                    Amount is required and must be a valid a number.
+                  </div>
+                </div>
+              
+                <button type="submit" class="btn btn-primary" data-type="transaction-submit">Submit</button>
+                
+                <div *ngIf="successMessage" data-type="submit-success" class="mt-3 alert alert-success">
+                  {{ successMessage }}
+                </div>
+              </form>             
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
